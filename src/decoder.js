@@ -73,7 +73,7 @@ AMRDecoder.prototype.process = function (data) {
 	}
 
 	data = is_str ? data.substr(6) : data.subarray(6);
-	benchmark && console.time('decode');
+
 	var output_offset = 0, offset = 0, len;
 
 	// Varies from quality
@@ -81,7 +81,7 @@ AMRDecoder.prototype.process = function (data) {
 	  , estimated_size = this.frame_size * total_packets
 	  , benchmark = !!this.params.benchmark
 	  , tot = 0;
-	
+	benchmark && console.time('decode');
 	var input_addr = this.input
 	  , buffer_addr = this.buffer
 	  , state_addr = this.state;
